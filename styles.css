@@ -1,0 +1,232 @@
+:root{
+    --bg: #0f172a;
+    --panel: #111c36;
+    --text: #e5e7eb;
+    --muted: #b6c0d1;
+    --accent: #f59e0b;
+    --accent2: #38bdf8;
+    --border: rgba(255,255,255,.10);
+  }
+  *{ box-sizing: border-box; }
+  
+  body{
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 10% 10%, rgba(56,189,248,.15), transparent 60%),
+      radial-gradient(900px 500px at 90% 30%, rgba(245,158,11,.12), transparent 60%),
+      var(--bg);
+    color: var(--text);
+  }
+  
+  .container{
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+  
+  /* Useful utility text */
+  .muted{
+    color: var(--muted);
+  }
+  
+  /* NAV */
+  .site-header{
+    position: sticky;
+    top: 0;
+    background: rgba(15,23,42,.75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+  }
+  
+  .navbar{
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  
+  .brand{
+    font-weight: 800;
+    letter-spacing: .4px;
+    text-decoration: none;
+    color: var(--text);
+  }
+  
+  .nav-links{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links a{
+    text-decoration: none;
+    color: var(--muted);
+    padding: .45rem .65rem;
+    border-radius: .6rem;
+  }
+  
+  .nav-links a:hover{
+    color: var(--text);
+    background: rgba(255,255,255,.06);
+  }
+  
+  /* HERO */
+  .hero{
+    padding: 2.5rem 1.75rem;
+    background: rgba(17,28,54,.55);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+  }
+  
+  .hero h1{
+    margin: 0 0 .75rem 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  
+  .hero p{
+    margin: 0 0 1.5rem 0;
+    color: var(--muted);
+    max-width: 65ch;
+  }
+  
+  .hero-actions{
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+  }
+  
+  /* BUTTONS */
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .75rem 1rem;
+    border-radius: .85rem;
+    text-decoration: none;
+    font-weight: 650;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+  
+  .btn:hover{
+    background: rgba(255,255,255,.06);
+  }
+  
+  .btn.primary{
+    background: linear-gradient(135deg, rgba(245,158,11,.95), rgba(245,158,11,.65));
+    color: #1b1406;
+    border: none;
+  }
+  
+  .btn.primary:hover{
+    filter: brightness(1.05);
+  }
+  
+  .btn.secondary{
+    background: rgba(56,189,248,.14);
+    color: var(--text);
+  }
+  
+  .btn.secondary:hover{
+    background: rgba(56,189,248,.20);
+  }
+  
+  /* CARDS */
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .card{
+    background: rgba(17,28,54,.45);
+    border: 1px solid var(--border);
+    border-radius: 1.1rem;
+    padding: 1.25rem;
+  }
+  
+  .card h3{ margin: 0 0 .4rem 0; }
+  .card p{ margin: 0; color: var(--muted); }
+  
+  /* PAGE HEADER (for add/edit pages) */
+  .page-header{
+    margin-bottom: 1rem;
+  }
+  
+  .page-header h1{
+    margin: 0 0 .5rem 0;
+  }
+  
+  /* FORM STYLES (your add/edit pages) */
+  .form-section{
+    background: rgba(17,28,54,.45);
+    border: 1px solid var(--border);
+    border-radius: 1.1rem;
+    padding: 1.25rem;
+  }
+  
+  .form{
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .form-group{
+    display: grid;
+    gap: .4rem;
+  }
+  
+  label{
+    font-weight: 650;
+    color: var(--text);
+  }
+  
+  input{
+    width: 100%;
+    padding: .75rem .85rem;
+    border-radius: .85rem;
+    border: 1px solid var(--border);
+    background: rgba(15,23,42,.55);
+    color: var(--text);
+    outline: none;
+  }
+  
+  input::placeholder{
+    color: rgba(182,192,209,.7);
+  }
+  
+  input:focus{
+    border-color: rgba(56,189,248,.45);
+    box-shadow: 0 0 0 3px rgba(56,189,248,.12);
+  }
+  
+  .form-actions{
+    margin-top: .25rem;
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+  }
+  
+  /* FOOTER */
+  .footer{
+    border-top: 1px solid var(--border);
+    padding: 1.25rem 0;
+    margin-top: 2rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  
+  /* Responsive */
+  @media (max-width: 850px){
+    .cards{ grid-template-columns: 1fr; }
+  }

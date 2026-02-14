@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CourseFlow | Edit Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a class="brand" href="index.html">CourseFlow</a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="addCourses.html">Add Course</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="page-header">
+    <h1>Edit Course</h1>
+    <p class="muted">
+      Update the course information below.
+    </p>
+  </section>
+
+  <section class="form-section">
+    <form class="form">
+
+      <div class="form-group">
+        <label for="courseCode">Course Code</label>
+        <input 
+          id="courseCode"
+          type="text"
+          value="WEB-210"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="courseTitle">Course Title</label>
+        <input 
+          id="courseTitle"
+          type="text"
+          value="Web Development"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="credits">Credits</label>
+        <input 
+          id="credits"
+          type="number"
+          min="1"
+          max="5"
+          value="3"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="instructorName">Instructor Name</label>
+        <input 
+          id="instructorName"
+          type="text"
+          value="John Smith"
+          required
+        >
+      </div>
+
+      <div class="form-actions">
+        <button class="btn primary" type="submit">
+          Save Changes
+        </button>
+      </div>
+
+    </form>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2026 CourseFlow | Final Project</p>
+</footer>
+
+</body>
+</html>
