@@ -31,24 +31,37 @@
   </section>
 
   <section class="form-section">
-    <form class="form">
+    <form class="form" id="addCourseForm">
 
       <div class="form-group">
-        <label for="courseCode">Course Code</label>
+        <label for="courseName">Course Name</label>
         <input 
-          id="courseCode"
+          id="courseName"
+          name="name"
           type="text" 
-          placeholder="Ex: WEB-210"
+          placeholder="Ex: Web Development"
           required
         >
       </div>
 
       <div class="form-group">
-        <label for="courseTitle">Course Title</label>
+        <label for="courseDescription">Description</label>
         <input 
-          id="courseTitle"
+          id="courseDescription"
+          name="description"
           type="text" 
-          placeholder="Ex: Web Development"
+          placeholder="Brief course description"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="subjectArea">Subject Area</label>
+        <input 
+          id="subjectArea"
+          name="subject"
+          type="text" 
+          placeholder="Ex: WEB"
           required
         >
       </div>
@@ -57,19 +70,10 @@
         <label for="credits">Credits</label>
         <input 
           id="credits"
+          name="credits"
           type="number" 
           min="1" 
-          max="5"
-          required
-        >
-      </div>
-
-      <div class="form-group">
-        <label for="instructorName">Instructor Name</label>
-        <input 
-          id="instructorName"
-          type="text" 
-          placeholder="Instructor Name"
+          max="6"
           required
         >
       </div>
