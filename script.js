@@ -1,7 +1,10 @@
 // Frontend API base URL
-// While testing locally, backend runs on http://localhost:3000
-// After deploy to Glitch, replace this with Glitch "live" URL.
-const API_BASE = "http://localhost:3000";
+// Local dev: backend runs on http://localhost:3000
+// Production (Render): use your live backend URL
+const API_BASE =
+  (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost")
+    ? "http://localhost:3000"
+    : "https://sdev-255-final-project-ateam-backend.onrender.com";
 
 // Helper: safely escape text for HTML output (prevents accidental HTML injection)
 function escapeHtml(value) {
