@@ -10,6 +10,11 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Health check route (for Render verification)
+app.get("/health", (req, res) => {
+  res.status(200).send("ok");
+});
+
 // AUTH (Stage 2 - start)
 // NOTE: For this checkpoint we use in memory demo users. Later you can move this into a database.
 
