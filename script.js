@@ -1,6 +1,6 @@
 // Frontend API base URL
 // While testing locally, backend runs on http://localhost:3000
-// After you deploy to Glitch, replace this with your Glitch "live" URL.
+// After deploy to Glitch, replace this with Glitch "live" URL.
 const API_BASE = "http://localhost:3000";
 
 // Helper: safely escape text for HTML output (prevents accidental HTML injection)
@@ -62,7 +62,7 @@ function wireCourseSearch() {
   const input = document.getElementById("courseSearch");
   if (!input) return; // Only on courses.html
 
-  // Prevent double-binding if loadCoursesPage() runs again
+  // Prevent double binding if loadCoursesPage() runs again
   if (input.dataset.bound === "true") return;
   input.dataset.bound = "true";
 
@@ -110,16 +110,14 @@ async function loadCoursesPage() {
     // Ensure search input is wired (only on courses.html)
     wireCourseSearch();
 
-    // Render full list initially
+    // Render full list initially, no longer necessary
     renderCoursesList(allCoursesCache);
   } catch (err) {
     courseList.innerHTML = `<p class="muted">Error loading courses: ${escapeHtml(err.message)}</p>`;
   }
 }
 
-// =========================
 // ADD COURSE (addCourses.html)
-// =========================
 function wireAddCoursePage() {
   const form = document.getElementById("addCourseForm");
   if (!form) return; // Only run on addCourses.html
@@ -134,7 +132,7 @@ function wireAddCoursePage() {
       credits: Number(form.elements.credits.value)
     };
 
-    // Basic front-end validation
+    // Basic front end validation
     if (!data.name || !data.description || !data.subject || !Number.isFinite(data.credits)) {
       alert("Please fill out Course Name, Description, Subject Area, and Credits.");
       return;
@@ -164,9 +162,7 @@ function wireAddCoursePage() {
   });
 }
 
-// =========================
 // COURSE DETAILS (courseInfo.html)
-// =========================
 async function loadCourseInfoPage() {
   const nameEl = document.getElementById("courseName");
   const descEl = document.getElementById("courseDescription");
@@ -232,9 +228,7 @@ async function loadCourseInfoPage() {
   }
 }
 
-// =========================
 // EDIT COURSE (editCourse.html)
-// =========================
 function wireEditCoursePage() {
   const form = document.getElementById("editCourseForm");
   if (!form) return; // Only run on editCourse.html
@@ -248,7 +242,7 @@ function wireEditCoursePage() {
     return;
   }
 
-  // Pre-fill the form with existing course data
+  // Pre fill the form with existing course data
   (async () => {
     try {
       const res = await fetch(`${API_BASE}/api/courses/${id}`);
@@ -306,9 +300,7 @@ function wireEditCoursePage() {
   });
 }
 
-// =========================
 // LOGIN (login.html)
-// =========================
 function wireLoginPage() {
   const form = document.getElementById("loginForm");
   const msg = document.getElementById("loginMsg");
@@ -348,9 +340,7 @@ function wireLoginPage() {
   });
 }
 
-// =========================
 // MY SCHEDULE (mySchedule.html)
-// =========================
 async function loadMySchedulePage() {
   const container = document.getElementById("scheduleList");
   if (!container) return; // Only run on mySchedule.html

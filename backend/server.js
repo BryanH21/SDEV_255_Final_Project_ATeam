@@ -10,17 +10,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// =========================
 // AUTH (Stage 2 - start)
-// =========================
-// NOTE: For this checkpoint we use in-memory demo users.
-// Later you can move this into a database.
+// NOTE: For this checkpoint we use in memory demo users. Later you can move this into a database.
 
-// In production, NEVER hardcode secrets. For class/demo this is OK.
 const JWT_SECRET = process.env.JWT_SECRET || "dev_secret_change_me";
 
 // Demo users (password is "Password1!")
-// We store hashed passwords even for demos.
 const users = [
   {
     id: 1,
@@ -65,9 +60,7 @@ app.post("/api/auth/login", (req, res) => {
   res.json({ token, role: user.role, email: user.email });
 });
 
-// =========================
 // AUTH MIDDLEWARE
-// =========================
 function requireAuth(req, res, next) {
   const header = req.headers.authorization || "";
   const [type, token] = header.split(" ");
@@ -203,11 +196,9 @@ app.delete("/api/courses/:id", requireAuth, requireTeacher, (req, res) => {
   res.status(204).send();
 });
 
-// =========================
 // STUDENT SCHEDULE (Stage 2)
-// =========================
-// In-memory schedule store: { userId: Set(courseId) }
-const schedules = {}; // e.g. schedules[2] = new Set([1, 2])
+// In memory schedule store: { userId: Set(courseId) }
+const schedules = {}; // Ex: schedules[2] = new Set([1, 2])
 
 // GET current user's schedule
 app.get("/api/me/schedule", requireAuth, (req, res) => {
