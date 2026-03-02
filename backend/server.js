@@ -7,7 +7,27 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+const allowedOrigins = [
+  process.env.FRONTEND_ORIGIN, // set this on Render (ex: your GitHub Pages or Render Static Site URL)
+  "http://localhost:5500",
+  "http://127.0.0.1:5500"
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      // Allow requests with no Origin (ex: curl, some server-to-server calls)
+      if (!origin) return cb(null, true);
+
+      // Allow known frontends
+      if (allowedOrigins.includes(origin)) return cb(null, true);
+
+      // Block everything else
+      return cb(null, false);
+    }
+  })
+);
+
 app.use(express.json());
 
 // Health check route (for Render verification)

@@ -1,10 +1,10 @@
 // Frontend API base URL
-// Local dev: backend runs on http://localhost:3000
-// Production (Render): use your live backend URL
-const API_BASE =
-  (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost")
-    ? "http://localhost:3000"
-    : "https://sdev-255-final-project-ateam-backend.onrender.com";
+// Tip: when running the frontend locally (127.0.0.1:5500), you usually still want to hit the deployed API.
+// If you want to hit a local backend instead, add `?localApi=1` to the page URL.
+const USE_LOCAL_API = new URLSearchParams(window.location.search).get("localApi") === "1";
+const API_BASE = USE_LOCAL_API
+  ? "http://localhost:3000"
+  : "https://sdev-255-final-project-ateam-backend.onrender.com";
 
 // Helper: safely escape text for HTML output (prevents accidental HTML injection)
 function escapeHtml(value) {
