@@ -225,8 +225,8 @@ async function loadCourseInfoPage() {
   } catch (err) {
     nameEl.textContent = "Course not found";
     descEl.textContent = err.message;
-    subjEl.textContent = "—";
-    creditsEl.textContent = "—";
+    subjEl.textContent = "";
+    creditsEl.textContent = "";
     deleteBtn.disabled = true;
   }
 }

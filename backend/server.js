@@ -16,7 +16,7 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, cb) => {
-      // Allow requests with no Origin (ex: curl, some server-to-server calls)
+      // Allow requests with no Origin (ex: curl, some server to server calls)
       if (!origin) return cb(null, true);
 
       // Allow known frontends
@@ -35,8 +35,8 @@ app.get("/health", (req, res) => {
   res.status(200).send("ok");
 });
 
-// AUTH (Stage 2 - start)
-// NOTE: For this checkpoint we use in memory demo users. Later you can move this into a database.
+// AUTH (Stage 2)
+// Demo users are stored in memory for this project (can be moved to a database later).
 
 const JWT_SECRET = process.env.JWT_SECRET || "dev_secret_change_me";
 
@@ -130,7 +130,7 @@ let courses = [
   {
     id: 2,
     name: "Intro to Programming",
-    description: "Build core programming foundations and problem-solving skills.",
+    description: "Build core programming foundations and problem solving skills.",
     subject: "CS",
     credits: 4
   }
