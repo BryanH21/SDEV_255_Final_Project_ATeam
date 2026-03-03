@@ -35,6 +35,11 @@ app.get("/health", (req, res) => {
   res.status(200).send("ok");
 });
 
+// Root route (friendly landing for base URL)
+app.get("/", (req, res) => {
+  res.status(200).send("CourseFlow API is running.");
+});
+
 // AUTH (Stage 2)
 // Demo users are stored in memory for this project (can be moved to a database later).
 
